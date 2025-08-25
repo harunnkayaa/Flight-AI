@@ -10,8 +10,7 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 - [Mimari](#mimari)
 - [Ekran Görüntüleri](#ekran-görüntüleri)
 - [Kurulum](#kurulum)
-  - [Backend (FastAPI)](#backend-fastapi)
-  - [Frontend (React)](#frontend-react)
+  
 
 ---
 
