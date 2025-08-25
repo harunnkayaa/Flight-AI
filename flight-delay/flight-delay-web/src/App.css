@@ -1,0 +1,380 @@
+:root{
+  --bg1:#0ea5e9;      /* gradient 1 */
+  --bg2:#6366f1;      /* gradient 2 */
+  --ink:#0f172a;      /* heading */
+  --text:#111827;     /* body */
+  --muted:#6b7280;
+  --ring:#dbeafe;
+  --border:#e5e7eb;
+  --card:#f8fafc;
+  --primary:#2563eb;
+  --primary-fg:#fff;
+  --err-bg:#fee2e2;
+  --succ-bg:#ecfdf5;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);}
+
+.wrap{max-width:980px;margin:24px auto 64px;padding:0 16px}
+
+/* ── banner ───────────────────────────────────────────── */
+.banner{
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#fff;border-radius:18px;padding:22px 20px;margin-bottom:18px;
+  position:relative;overflow:hidden;
+}
+.banner::after{
+  content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;
+  background:rgba(255,255,255,.15);filter:blur(2px);
+}
+.banner .badge{
+  display:inline-block;background:rgba(255,255,255,.2);padding:6px 10px;border-radius:999px;font-weight:600;
+}
+.banner h1{margin:6px 0 4px;font-size:clamp(22px,4vw,40px);font-weight:800;letter-spacing:.2px}
+.banner p{margin:0;opacity:.95}
+
+/* ── form grid ────────────────────────────────────────── */
+.grid{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.field{display:flex;flex-direction:column;gap:6px}
+label {
+  color: white;   /* yazı rengini beyaz yap */
+  font-weight: bold; /* daha belirgin olsun istersen */
+}
+
+small{color:var(--muted)}
+
+input, select{
+  height:50px;font-size:16px;border:1px solid var(--border);border-radius:12px;
+  padding:0 14px;background:#fff;outline:none;transition:.15s border-color,.15s box-shadow;
+  width:100%;
+}
+input:focus, select:focus{border-color:#60a5fa; box-shadow:0 0 0 4px var(--ring)}
+
+/* date group */
+.input-group{position:relative;display:flex;align-items:center}
+.input-group input{width:100%;padding-right:44px}
+.icon-btn{
+  position:absolute;right:6px;height:36px;width:36px;border-radius:10px;
+  display:grid;place-items:center;border:1px solid var(--border);background:#fff;cursor:pointer;
+}
+.icon-btn:hover{background:#f3f4f6}
+.icon-btn svg{fill:white,}
+.hidden-date{position:absolute;inset:0;opacity:0;pointer-events:none;width:0;height:0}
+
+/* actions */
+.actions{
+  grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end;margin-top:2px;flex-wrap:wrap;
+}
+.btn{
+  height:50px;padding:0 18px;border-radius:12px;border:1px solid transparent;font-size:16px;cursor:pointer;
+}
+.btn.primary{background:var(--primary);color:var(--primary-fg)}
+.btn.primary:disabled{opacity:.7;cursor:not-allowed}
+.btn.ghost{background:#fff;border-color:var(--border)}
+
+/* chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{
+  background:#eef2ff;border:1px solid #e0e7ff;color:#3730a3;border-radius:999px;
+  padding:6px 10px;font-size:13px;
+}
+
+/* cards / result */
+.card{
+  margin-top:14px;padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--card);
+}
+.card.error{background:var(--err-bg);border-color:#fecaca}
+.card.success{background:var(--succ-bg);border-color:#bbf7d0}
+.card h3{margin:0 0 8px}
+
+.flight-card{display:grid;gap:8px}
+.flight-card .route{
+  display:flex;align-items:center;gap:10px;justify-content:center;padding:6px 0;
+}
+.flight-card .code{
+  font-size:26px;font-weight:800;color:var(--ink);letter-spacing:.5px;
+}
+.flight-card .plane{font-size:20px}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px dashed #e5e7eb}
+.kv:first-of-type{border-top:none}
+
+/* footer */
+.foot{margin-top:20px;color:var(--muted);font-size:12px;text-align:center}
+
+
+/* sayfa boyu ve arka plan */
+html, body, #root { height: 100%; }
+body{
+  background:
+    radial-gradient(1200px 800px at 80% 10%, #eef2ff 0, #f7f7ff 40%, #ffffff 100%);
+}
+
+/* ortada duran ana kart */
+/* Tüm ekranı kaplasın ve içerik dikey-yatay tam ortalansın */
+.page{
+  min-height: 100dvh;             /* mobilde doğru yüksekliğe uyum */
+  display: grid;
+  place-items: center;            /* hem yatay hem dikey merkez */
+  padding: 24px 12px;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #eef2ff 0%, transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Kart genişliği: responsive ve ortalı */
+.wrap{
+  width: min(560px, 94vw);        /* istersen 600–720px yapabilirsin */
+  margin: 0;                      /* üst/sol boşluk olmasın */
+  padding: 0 16px;
+}
+
+/* ——— mevcut değişkenler ve kuralların kalsın ——— */
+
+/* Kartı daha şık yap */
+.form-card{
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(2,6,23,.06), 0 2px 6px rgba(2,6,23,.04);
+  border: 1px solid #eef2ff;
+}
+
+/* Banner'ı biraz daha “hero” gibi göster */
+.banner{
+  background: radial-gradient(800px 300px at 20% -30%, rgba(255,255,255,.25) 0%, transparent 60%),
+              linear-gradient(135deg,var(--bg1),var(--bg2));
+  padding: 26px 22px;
+}
+
+/* Input’lar kare değil daha “soft” */
+input, select{
+  border-radius: 14px;
+  background: #fff;
+}
+
+/* Havalimanı/taşıyıcı girerken otomatik büyük harf görünümü */
+input[name="origin"], input[name="dest"], select[name="carrier"]{
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* Ghost buton daha sakin, primary daha “app” hissi */
+.btn.ghost{
+  background:#fff;
+  border-color:#e6e9f5;
+}
+.btn.ghost:hover{ background:#f8fafc; }
+.btn.primary{
+  background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
+  color:#fff;
+  box-shadow: 0 6px 14px rgba(37,99,235,.25);
+}
+.btn.primary:hover{ filter: brightness(1.03); }
+
+/* Yükleme spinner’ı */
+.spinner{
+  display:inline-block;
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,.55);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  vertical-align: -3px;
+}
+@keyframes spin{ to{ transform: rotate(360deg) } }
+
+/* Sonuç kartı açılırken ufak bir “pop” animasyonu */
+.pop{ animation: pop-in .28s ease-out; }
+@keyframes pop-in{
+  from{ transform: translateY(6px) scale(.98); opacity: .0; }
+  to{   transform: translateY(0)   scale(1);   opacity: 1; }
+}
+
+/* Chip’leri daha “badge” gibi yapalım */
+.chip{
+  background:#eef2ff;
+  border:1px solid #dbe4ff;
+  color:#1e3a8a;
+  padding:7px 12px;
+  border-radius:999px;
+}
+
+/* Form grid aralıklarını biraz aç */
+.grid{ gap: 16px; }
+
+/* Kart içi başlıkları biraz küçült, metinleri temizle */
+label {
+  color: white,;   /* yazı rengini beyaz yap */
+  font-weight: bold; /* daha belirgin olsun istersen */
+}
+
+small{ color: var(--muted); }
+
+/* Route kodları daha güçlü görünsün */
+.flight-card .code{
+  font-size:28px;
+  font-weight:900;
+}
+
+/* Sayfa arka planı: yumuşak gradient */
+.page{
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 12px;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #eef2ff 0%, transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Kart genişliği */
+.wrap{
+  width: min(620px, 94vw); /* biraz daha ferah */
+  margin: 0;
+  padding: 0 16px;
+}
+
+/* Hata ve başarı kartlarını daha okunur yap */
+.card.error{
+  background:#fff1f2;
+  border-color:#fecdd3;
+}
+.card.success{
+  background:#edfff6;
+  border-color:#bbf7d0;
+}
+
+/* === DEKOR: sahne === */
+.page{ position:relative; overflow:hidden; }
+.wrap{ position:relative; z-index: 2; }       /* içerik üstte */
+.fx{ position:absolute; inset:0; z-index:1; pointer-events:none; }
+
+/* Gökyüzü gradyanı + hafif mor aura */
+.fx .sky {
+  position: absolute;
+  inset: 0;                         /* tüm ekranı kapla */
+  background: url("/sky.jpg") center/cover no-repeat; 
+  z-index: -2;                      /* en arkada kalsın */
+}
+
+
+/* AI grid (yapay zeka hissi) */
+.fx .ai-grid{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(0deg, rgba(2,6,23,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,6,23,.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(800px 450px at 50% 0%, #000 60%, transparent 100%);
+  opacity:.5;
+}
+
+/* Bulutlar */
+.fx .cloud{
+  position:absolute;
+  width:420px; height:220px; filter: blur(30px);
+  background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,0));
+  opacity:.6; animation: float 26s ease-in-out infinite;
+}
+.fx .cloud-1{ top:12%; left:8%; transform: rotate(-6deg); animation-delay:-4s; }
+.fx .cloud-2{ top:26%; right:10%; width:500px; height:260px; animation-delay:-12s; }
+.fx .cloud-3{ top:55%; left:18%; width:360px; height:180px; animation-delay:-18s; }
+
+@keyframes float{
+  0%{ transform: translateX(0) translateY(0) scale(1); }
+  50%{ transform: translateX(12px) translateY(-6px) scale(1.03); }
+  100%{ transform: translateX(0) translateY(0) scale(1); }
+}
+
+/* Uçuş izi (kesikli çizgi, akıyormuş gibi) */
+.fx .trail{
+  position:absolute; left:-5%; top:6%;
+  width:110%; height:240px;
+}
+.fx .trail path{
+  fill:none; stroke: rgba(255,255,255,.8);
+  stroke-width: 2;
+  stroke-dasharray: 8 10;
+  filter: drop-shadow(0 2px 6px rgba(99,102,241,.25));
+  animation: dash 10s linear infinite;
+}
+@keyframes dash{ to{ stroke-dashoffset: -180; } }
+
+
+
+/* ikinci uçak – akışı doldurmak için farklı hiza ve gecikme */
+/* Uçak: senin görselin (plane.png), sol-alt -> sağ-üst, daha yavaş */
+.fx .plane{
+  position: absolute;
+  left: -18vw;          /* ekranın solundan biraz dışarıda başla */
+  bottom: -12vh;        /* sol-alt köşe hissi */
+  width: 330px;         /* uçağı büyüttüm; istersen 240-260 yap */
+  height: 330px;
+  background: url("/plane3.jpg") center/contain no-repeat;
+  filter: drop-shadow(0 6px 14px rgba(2,6,23,.25));
+  animation: fly-oneway 30s cubic-bezier(.22,.61,.36,1) infinite; /* yavaş/sık değil */
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.plane:nth-child(1) {
+  animation-delay: 0s;
+}
+.plane:nth-child(2) {
+  animation-delay: 8s;
+}
+.plane:nth-child(3) {
+  animation-delay: 16s;
+}
+
+
+/* Tek yön gidiş: hedefte kaybolup sonra yeni uçak baştan çıkar */
+@keyframes fly-oneway{
+  0%   { transform: translate(0,0) rotate(12deg);  opacity: 0; }
+  10%  { opacity: 1; }  /* yumuşak giriş */
+  75%  { transform: translate(130vw,-80vh) rotate(8deg); opacity: 1; }
+  100% { transform: translate(130vw,-80vh) rotate(8deg); opacity: 0; } /* hedefte kaybol */
+}
+
+/* Artık ikinci uçağa gerek yok, .plane.p2 kuralını kaldırabilirsin */
+
+
+
+/* Banner’ı cam gibi göster, AI ışıltısı */
+.banner{
+  backdrop-filter: saturate(1.2) blur(2px);
+  box-shadow: 0 8px 22px rgba(2,6,23,.08), inset 0 0 0 1px rgba(255,255,255,.2);
+  position: relative;
+}
+.banner::before{
+  content:""; position:absolute; inset:-2px; border-radius:18px;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.15) inset, 0 0 24px rgba(99,102,241,.35);
+  pointer-events:none;
+}
+
+/* Sonuç kartı: kokpit hissi */
+.flight-card{
+  background: linear-gradient(180deg,#ecfff7 0%, #e8fff5 100%);
+  border-color:#a7f3d0;
+}
+.flight-card .route .plane{ filter: drop-shadow(0 2px 2px rgba(2,6,23,.12)); }
+
+/* Primary buton biraz “app-like” */
+.btn.primary{
+  background: linear-gradient(180deg,#2563eb 0%, #1d4ed8 100%);
+  color:#fff;
+  box-shadow: 0 8px 18px rgba(37,99,235,.25);
+}
+.btn.primary:hover{ filter: brightness(1.04); }
+
+/* Küçük detaylar */
+.chip{ background:#eef2ff; border-color:#dbe4ff; color:#1e3a8a; }
+
+
+small,
+.foot {
+  color: #fff !important;
+}
