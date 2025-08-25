@@ -43,6 +43,7 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 
 ## Kurulum
 
+---
 ### Backend (FastAPI)
 
 ```bash
@@ -57,6 +58,8 @@ python -m venv .venv
 pip install -r requirements.txt
 ------------------------------------
 uvicorn main:app --reload --port 8000
+
+---
 
 ### Frontend (React)
 
