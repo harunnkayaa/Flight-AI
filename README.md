@@ -42,11 +42,10 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 ---
 
 ## Kurulum
-
 ---
 ### Backend (FastAPI)
 
-```bash
+
 cd flight-delay/backend
 ------------------------------------
 python -m venv .venv
