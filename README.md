@@ -12,11 +12,6 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 - [Kurulum](#kurulum)
   - [Backend (FastAPI)](#backend-fastapi)
   - [Frontend (React)](#frontend-react)
-- [API](#api)
-- [Model](#model)
-- [Dizin Yapısı](#dizin-yapısı)
-- [Geliştirme Notları](#geliştirme-notları)
-- [Lisans](#lisans)
 
 ---
 
@@ -50,10 +45,25 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 
 ## Kurulum
 
-### Backend (FastAPI)
+### Backend (FastAPI)     
+
 ```bash
-cd backend
+cd flight-delay/backend
+------------------------------------
 python -m venv .venv
-.venv\Scripts\activate    # Windows
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+# source .venv/bin/activate
+------------------------------------
 pip install -r requirements.txt
-uvicorn main:app --reload
+------------------------------------
+uvicorn main:app --reload --port 8000
+------------------------------------
+
+### Frontend (react)
+
+cd flight-delay/frontend
+npm install
+npm run dev
+
