@@ -24,9 +24,6 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 - ✨ **Makine öğrenmesi**: XGBoost ile eğitilmiş model  
 - ⚡ **FastAPI**: REST API servisi (Uvicorn ile)  
 - 🎨 **React (Vite)**: Modern, hızlı ve animasyonlu kullanıcı arayüzü  
-- ✅ **Form doğrulama**:  
-  - Aynı havalimanı seçilirse hata  
-  - Kalkış ve varış saati aynı olamaz uyarısı  
 - 🧾 **Özet kartı**: Rota, taşıyıcı, kalkış/varış saati ve tahmini gecikme  
 - ☁️ **Arka plan & uçak animasyonu**: Daha sezgisel bir deneyim
 
