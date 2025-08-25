@@ -48,10 +48,7 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 
 cd flight-delay/backend
 python -m venv .venv
-- Windows
 .venv\Scripts\activate
-- macOS/Linux
-- source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 
@@ -59,7 +56,7 @@ uvicorn main:app --reload --port 8000
 ---
 
 ### Frontend (React)
-```bash
+
 cd flight-delay/frontend
 npm install
 npm run dev
