@@ -45,7 +45,7 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 
 ## Kurulum
 
-### Backend (FastAPI)     
+-Backend (FastAPI)     
 
 ```bash
 cd flight-delay/backend
@@ -58,10 +58,10 @@ python -m venv .venv
 ------------------------------------
 pip install -r requirements.txt
 ------------------------------------
-uvicorn main:app --reload --port 8000
+uvicorn main:app --reload --port 8000 
 
----
-### Frontend (react)
+
+-Frontend (react)
 
 cd flight-delay/frontend
 npm install
