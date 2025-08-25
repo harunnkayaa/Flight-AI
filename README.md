@@ -46,17 +46,17 @@ Backend: **FastAPI** · Model: **XGBoost** · Frontend: **React (Vite)**
 ### Backend (FastAPI)
 
 
-**cd flight-delay/backend**
-**python -m venv .venv**
-**.venv\Scripts\activate**
-**pip install -r requirements.txt**
-**uvicorn main:app --reload --port 8000**
+- **cd flight-delay/backend**
+- **python -m venv .venv**
+- **.venv\Scripts\activate**
+- **pip install -r requirements.txt**
+- **uvicorn main:app --reload --port 8000**
 
 
 ---
 
 ### Frontend (React)
 
-**cd flight-delay/frontend**
-**npm install**
-**npm run dev**
+- **cd flight-delay/frontend**
+- **npm install**
+- **npm run dev**
